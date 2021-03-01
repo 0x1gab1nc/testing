@@ -1,0 +1,95 @@
+{
+  "name": "mraproviderportal",
+  "version": "13.0.0",
+  "private": true,
+  "dependencies": {
+    "@capaj/react-select-timezone": "^3.0.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "cuid": "^2.1.8",
+    "express": "^4.17.1",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.32",
+    "msw": "^0.21.3",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
+    "react-bootstrap": "^1.4.0",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table2-paginator": "^2.1.2",
+    "react-dom": "^16.13.1",
+    "react-idle-timer": "^4.3.6",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-select": "^4.0.2",
+    "spa-central-styles": "^1.1.9"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "generate-build-version": "node generate-build-version",
+    "build": "node generate-build-version && npm run sonar && react-scripts build",
+    "buildunit": "npm run sonar && react-scripts build",
+    "localbuild": "react-scripts build",
+    "watch": "npm-watch",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "copy": "cp -r ./public/* ./build",
+    "localCopy": "xcopy \"./public\" \"./build\" /e",
+    "test:ci": "react-scripts test --ci --coverage --watchAll=false --reporters=default --reporters=jest-junit --testResultsProcessor jest-sonar-reporter",
+    "sonar": "npm run test:ci || node sonar-project.js",
+    "sonar-test": "react-scripts test --silent --env=jsdom --coverage --watchAll=false --testResultsProcessor jest-sonar-reporter"
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "./junit",
+    "outputName": "junit.xml"
+  },
+  "jestSonar": {
+    "reportPath": "sonar-jest-report",
+    "reportFile": "sonar-jest-report.xml",
+    "indent": 4
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx",
+      "quiet": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "ie 11",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "jest-junit": "^11.1.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "npm-watch": "^0.6.0",
+    "sonarqube-scanner": "^2.7.0"
+  },
+  "buildDate": "",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "generate-build-version.js",
+  "repository": {
+    "type": "git",
+    "url": "http://gitscm.multiplan.com/CoreServices/ui/javascript/reactjs/MRAProviderPortal"
+  },
+  "author": "",
+  "license": "ISC"
+}
